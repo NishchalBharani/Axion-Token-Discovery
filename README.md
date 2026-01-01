@@ -14,7 +14,9 @@ The build prioritises speed, pixel level accuracy and long-term maintainability 
 
 # How to run!
 npm install
-npm run dev 
+npm run dev
+
+Live demo: (https://axion-token-table-seven.vercel.app/)
 
 ## Responsive layout
 Desktop View:
