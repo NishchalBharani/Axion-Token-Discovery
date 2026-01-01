@@ -10,7 +10,7 @@ type TabKey = "new_pairs" | "final_stretch" | "migrated";
 const tabs: { key: TabKey; label: string; badge?: number }[] = [
   { key: "new_pairs", label: "New Pairs" },
   { key: "final_stretch", label: "Final Stretch" },
-  { key: "migrated", label: "M", badge: 12 },
+  { key: "migrated", label: "Migrated", badge: 12 },
 ];
 
 interface TopBarProps {
@@ -25,7 +25,7 @@ export default function TopBar({ activeTab, onTabChange }: TopBarProps = {}) {
 
   return (
     <>
-      <div className="md:hidden fixed top-14 left-0 right-0 bg-black border-b border-white/10 z-40">
+      <div className="lg:hidden fixed top-14 left-0 right-0 bg-black border-b border-white/10 z-40">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center gap-3">
             <div className="relative">
@@ -34,7 +34,6 @@ export default function TopBar({ activeTab, onTabChange }: TopBarProps = {}) {
               </div>
               <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-lg blur-md" />
             </div>
-
             <div className="flex items-center gap-5 text-sm font-medium">
               {tabs.map((tab) => (
                 <button
@@ -57,7 +56,6 @@ export default function TopBar({ activeTab, onTabChange }: TopBarProps = {}) {
               ))}
             </div>
           </div>
-
           <div className="flex items-center gap-3">
             <button className="p-1">
               <Settings className="w-4 h-4 text-gray-500" />
@@ -66,7 +64,7 @@ export default function TopBar({ activeTab, onTabChange }: TopBarProps = {}) {
         </div>
       </div>
 
-      <div className="hidden md:block fixed top-14 left-0 w-full h-[52px] bg-black border-b border-white/10 z-40">
+      <div className="hidden lg:block fixed top-14 left-0 w-full h-[52px] bg-black border-b border-white/10 z-40">
         <div className="max-w-full h-full px-4 flex items-center gap-4">
           <div className="flex items-center gap-2 text-white font-semibold">
             <span className="text-lg">Pulse</span>

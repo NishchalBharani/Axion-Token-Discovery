@@ -58,12 +58,14 @@ export default function Home() {
         />
 
         {isLoading && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+          <div className="lg:hidden px-2 sm:px-4">
+            <TokenTableSkeleton label={categories.find(c => c.key === activeMobileTab)?.label || ""} />
+          </div>
+        )}
+        {isLoading && (
+          <div className="hidden lg:grid lg:grid-cols-3 gap-4 px-2 sm:px-4">
             {categories.map((cat) => (
-              <TokenTableSkeleton
-                key={cat.key}
-                label={cat.label}
-              />
+              <TokenTableSkeleton key={cat.key} label={cat.label} />
             ))}
           </div>
         )}
@@ -76,7 +78,7 @@ export default function Home() {
 
         {!isLoading && !isError && tokensByCategory && (
           <>
-            <div className="md:hidden">
+            <div className="lg:hidden px-2 sm:px-4">
               <ErrorBoundary fallback={
                 <div className="flex items-center justify-center h-full p-4 text-sm text-gray-400 border border-white/10 rounded bg-white/5">
                   Failed to load data
@@ -86,6 +88,7 @@ export default function Home() {
                   <TokenTable
                     label={categories.find(c => c.key === activeMobileTab)?.label || ""}
                     tokens={tokensByCategory[activeMobileTab]}
+                    isFullWidth={true}
                   />
                 ) : (
                   <TokenTableSkeleton label={categories.find(c => c.key === activeMobileTab)?.label || ""} />
@@ -93,7 +96,7 @@ export default function Home() {
               </ErrorBoundary>
             </div>
 
-            <div className="hidden md:grid md:grid-cols-3 gap-4 items-stretch">
+            <div className="hidden lg:grid lg:grid-cols-3 gap-4 px-2 sm:px-4">
               {categories.map((cat) => (
                 <ErrorBoundary key={cat.key} fallback={
                   <div className="flex items-center justify-center h-full p-4 text-sm text-gray-400 border border-white/10 rounded bg-white/5">

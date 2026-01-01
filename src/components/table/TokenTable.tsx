@@ -6,9 +6,11 @@ import TokenRow from "./TokenRow";
 export default function TokenTable({
   label,
   tokens,
+  isFullWidth = false,
 }: {
   label: string;
   tokens: Token[];
+  isFullWidth?: boolean;
 }) {
   const { sortKey, sortOrder } = useSelector(
     (state: RootState) =>
@@ -29,7 +31,11 @@ export default function TokenTable({
   });
 
   return (
-    <div className="flex flex-col h-[calc(100vh-112px)] sm:h-[calc(100vh-160px)] md:h-[calc(100vh-180px)] border border-white/10 rounded-lg bg-white/[0.03] overflow-hidden">
+    <div className={`flex flex-col border border-white/10 rounded-lg bg-white/[0.03] overflow-hidden ${
+      isFullWidth
+        ? "h-[calc(100vh-112px)] w-full"
+        : "h-[calc(100vh-112px)] sm:h-[calc(100vh-160px)] md:h-[calc(100vh-180px)]"
+    }`}>
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/[0.02] flex-shrink-0">
         <span className="text-sm font-medium text-white truncate">
           {label}
@@ -43,7 +49,6 @@ export default function TokenTable({
           <span className="hidden xs:inline text-gray-500">P3</span>
         </div>
       </div>
-
       <div className="flex-1 overflow-y-auto scrollbar-hidden scrollbar-thumb-white/10 scrollbar-track-transparent">
         {sortedTokens.length === 0 ? (
           <div className="p-8 text-center text-gray-500 text-sm">
