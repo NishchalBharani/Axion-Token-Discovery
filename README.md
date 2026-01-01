@@ -15,3 +15,16 @@ The build prioritises speed, pixel level accuracy and long-term maintainability 
 # How to run!
 npm install
 npm run dev 
+
+## Responsive layout
+Desktop View:
+![Desktop view](./src/SnapShots/Desktop.png)
+
+Mobile View:
+![Mobile view](./src/SnapShots/mobile.png)
+
+Tablet View:
+![Tablet view](./src/SnapShots/tablet.png)
+
+Lighthouse score:
+![Lighthouse score](./src/SnapShots/lighthouse%20score.png)
